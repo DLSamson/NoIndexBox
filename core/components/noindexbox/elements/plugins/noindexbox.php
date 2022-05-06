@@ -27,7 +27,7 @@ switch ($modx->event->name) {
                     page.on('beforerender', function() {
                         page.insert(6,{
                           xtype: 'xcheckbox'
-                          ,boxLabel: 'Не индексировать'
+                          ,boxLabel: 'Исключить из индексации'
                           ,name: 'isHidden'
                           ,id: 'noindexbox-isHidden'
                           ,inputValue: 1
@@ -68,8 +68,15 @@ switch ($modx->event->name) {
             $isChecked = $noindexbox->get('isHidden');
         }
         if($isChecked) {
-            $block = '<meta name="robots" content="noindex, nofollow">';
+            $block = '<meta name="robots" content="noindex, nofollow" />';
             $modx->regClientStartupHTMLBlock($block);
         }
+    break;
+    case 'OnEmptyTrash':
+        /* @var array $ids */
+        $rows = $modx->removeCollection('noindexbox', [
+            'resource:IN' => $ids,
+        ]);
+
     break;
 }

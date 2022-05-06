@@ -8,6 +8,7 @@ return [
             'OnDocFormPrerender' => [],
             'OnDocFormSave' => [],
             'OnLoadWebDocument' => [],
+            'OnEmptyTrash' => [],
         ],
     ],
 ];
