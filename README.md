@@ -9,4 +9,4 @@ To build and install this package, just clone it into your clear modx install, a
 php NoIndexBox/_build/build.php
 ```
 
-This will create a transport package in MODX_CORE_PATH/packages, so you can use it everywhere
+This will create a transport package in `MODX_CORE_PATH/packages`, so you can use it everywhere
